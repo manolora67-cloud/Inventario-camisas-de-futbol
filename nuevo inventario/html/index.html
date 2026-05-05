@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventario Camisas de Fútbol</title>
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="header">
+        <h1>📋 Inventario de camisas de fútbol</h1>
+        <p>
+          Gestiona tu inventario, recibe alertas de stock bajo y mantén todo
+          organizado.
+        </p>
+      </div>
+      <div class="toolbar">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Buscar por equipo..."
+        />
+        <button class="btn-primary" id="btnAgregar">Agregar camisa</button>
+        <button class="btn-danger" id="btnAlertas">Alertas de stock</button>
+      </div>
+
+      <div id="camisasGrid" class="grid"></div>
+
+      <footer>© 2026 Inventario de Camisas de Fútbol</footer>
+    </div>
+
+    <!-- Modal: Agregar / Editar (reutilizable) -->
+    <div class="overlay" id="modalForm">
+      <div class="modal">
+        <h2 id="modalTitulo">Agregar camisa</h2>
+        <div class="field">
+          <label>Equipo</label><input id="fEquipo" autocomplete="off" />
+          <span class="field-error" id="errEquipo"></span>
+        </div>
+        <div class="field">
+          <label>Talla</label>
+          <select id="fTalla">
+            <option value="">-- Selecciona una talla --</option>
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+          </select>
+          <span class="field-error" id="errTalla"></span>
+        </div>
+        <div class="field">
+          <label>Color</label><input id="fColor" autocomplete="off" />
+          <span class="field-error" id="errColor"></span>
+        </div>
+        <div class="field">
+          <label>Cantidad</label>
+          <div class="stepper">
+            <button type="button" class="stepper-btn" id="btnMenos">
+              &#8722;
+            </button>
+            <input
+              id="fCantidad"
+              type="text"
+              inputmode="numeric"
+              autocomplete="off"
+            />
+            <button type="button" class="stepper-btn" id="btnMas">+</button>
+          </div>
+          <span class="field-error" id="errCantidad"></span>
+        </div>
+        <div class="field">
+          <label>Precio ($)</label
+          ><input
+            id="fPrecio"
+            type="text"
+            inputmode="numeric"
+            autocomplete="off"
+            placeholder="Ej: 180000"
+          />
+          <span class="field-error" id="errPrecio"></span>
+        </div>
+        <div class="field">
+          <label>Imagen</label
+          ><input id="fImagen" type="file" accept="image/*" />
+        </div>
+        <input type="hidden" id="fId" />
+        <div class="modal-actions">
+          <button class="btn-primary" id="btnGuardar">Guardar</button>
+          <button class="btn-cerrar" id="btnCerrarForm">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alertas de stock bajo -->
+    <div class="overlay" id="modalAlertas">
+      <div class="modal">
+        <h2>⚠️ Alertas de stock bajo</h2>
+        <div id="alertasBody"></div>
+        <div class="modal-actions">
+          <button class="btn-cerrar" id="btnCerrarAlertas">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/index.js"></script>
+  </body>
+</html>
