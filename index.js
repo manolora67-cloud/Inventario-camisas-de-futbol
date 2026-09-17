@@ -1,5 +1,5 @@
 const UMBRAL_STOCK = 3; // Cantidad mínima de cualquier camisa para no mostrar alerta de stock bajo
-const IMG_DEFAULT = "../img/default.png";
+const IMG_DEFAULT = "default.png";
 
 let inventario = [
   {
