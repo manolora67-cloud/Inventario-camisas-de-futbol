@@ -96,9 +96,9 @@ function render() {
 
   grid.innerHTML = lista
     .map((c) => {
-      const img = c.imagen.startsWith("data:")
-        ? c.imagen
-        : `../img/${c.imagen}`;
+      // CORREGIDO: Se asigna la imagen directamente sin buscar carpetas externas
+      const img = c.imagen;
+      
       const badge =
         c.cantidad < UMBRAL_STOCK
           ? `<span class="badge badge-low">⚠️ Stock bajo</span>`
